@@ -64,6 +64,11 @@ gem "simple_form"
 
  gem 'activeadmin', github: 'gregbell/active_admin'
 
+ # gems for scrapping 
+
+ gem 'httparty'
+ gem 'nokogiri'
+
 
 
 
