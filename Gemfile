@@ -4,7 +4,13 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+
+# Iwant to use postgres on the live site
+gem 'pg', group: :production 
+
+# i want to set my site up with heroku
+gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
