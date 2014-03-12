@@ -1,0 +1,37 @@
+<hi>TestingTime</h1>
+
+<p>This is my home page</p>
+ 
+ <%# Time.now %>
+
+The user currently logged in is <%= @username %>
+
+<h2>There are <%= @stories.size %> stories</h2>
+
+<!-- this creates loop-->
+
+<% @stories.each do |story| %>
+ 
+
+	<div class="story">
+		<h3><%= link_to story.title, story.link %></h3>
+		<p><%= story.description %></p>
+		<p>posted <%= time_ago_in_words story.created_at %></p>
+		<p>
+			<%= link_to pluralize(story.comments.size, "comments"), 
+						story_path(story) %>
+
+			<%= pluralize(story.votes.size, "votes") %>
+		</p>
+	</div>
+
+
+
+
+
+<% end %> 
+
+<p>
+	<%# link_to "Add a story", "/stories/new" %>
+	<%= link_to "Add a story", new_story_path %>
+</p>
