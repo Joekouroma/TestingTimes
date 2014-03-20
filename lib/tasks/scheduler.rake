@@ -8,11 +8,18 @@ task scrape_reddit: :environment do
 
 	@raw_html = HTTParty.get("http://reddit.com")
 
+	# puts "lets see the raw html"
+	# puts @raw_html
+
 	# lets turn the raw html into something we can pass
 	@real_html  = Nokogiri::HTML(@raw_html)
 
 	# in css we would style the title links using div siteTable a.title
 	@real_html.css("div#siteTable a.title").each do |link|
+
+	# debugging 
+		puts link
+		puts "------"
 
 		# this is similar ro the stories?index.html.erb view
 

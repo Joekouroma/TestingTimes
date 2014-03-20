@@ -16,17 +16,18 @@ class StoriesController < ApplicationController
 
 		if params[:sort] == "recent"
 			# if true sort by most recent 
-			@stories = Story.order("created_at desc")
+			@stories = Story.order("created_at desc").page(params[:page])
+
 
 		elsif params[:filter] == "featured"
 			
-			@stories = Story.where(is_featured: true).order("title asc")
+			@stories = Story.where(is_featured: true).order("title asc").page(params[:page])
 
 
 		else
 
 			# sort by most voted
-			@stories = Story.order("votes_count desc, created_at desc")
+			@stories = Story.order("votes_count desc, created_at desc").page(params[:page])
 		end
 
 		  # @stories = Story.all 
@@ -38,6 +39,7 @@ class StoriesController < ApplicationController
 	#show me  an individual story page
 	def show
 		@story = Story.find(params[:id])
+		
 		
 	end
 
@@ -134,4 +136,9 @@ class StoriesController < ApplicationController
 		params.require(:story).permit(:title, :description, :link)
 		
 	end
+
+	def list
+	  @stories = story.page(params[:page])
+	end
+
 end

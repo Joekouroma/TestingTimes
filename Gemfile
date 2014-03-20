@@ -69,6 +69,10 @@ gem "simple_form"
  gem 'httparty'
  gem 'nokogiri'
 
+ # gem for pagination
+
+ gem "kaminari"
+
 
 
 
