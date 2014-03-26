@@ -6,7 +6,7 @@ task scrape_reddit: :environment do
 
 	# this grabs the source code of reddit
 
-	@raw_html = HTTParty.get("http://reddit.com")
+	@raw_html = HTTParty.get("http://www.reddit.com")
 
 	# puts "lets see the raw html"
 	# puts @raw_html

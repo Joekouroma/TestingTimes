@@ -54,7 +54,11 @@ header {
   }
 }
 
-nav a {
+nav.paginator a {
+display: inline;
+}
+
+nav.list1 a {
   display: block;
 }
 
